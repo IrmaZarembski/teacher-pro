@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тичер ПРО | Методика и Экспертиза</title>
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === ЦВЕТОВАЯ ПАЛИТРА === */
+        :root {
+            --primary-color: #0A4B5C;
+            --accent-light: #4CA1A3;
+            --channel-color: #3b87a1;
+            --vk-blue: #0077FF;
+            --text-dark: #264653;
+            --bg-light: #F4F7F6;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === ШАПКА === */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-logo img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .header-contacts {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        .header-contacts a {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .header-contacts a:hover {
+            color: var(--channel-color);
+        }
+
+        /* === ГЛАВНЫЙ ЭКРАН (HERO) === */
+        .hero {
+            position: relative;
+            padding: 80px 0 150px;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 0 0 80px 80px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.postimg.cc/KY1mFNCt/Снимок_экрана_2026_03_03_в_20_24_23.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -3;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 75, 92, 0.65);
+            z-index: -2;
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        /* ЛОГОТИП В HERO (БЕЗ КРУГА) */
+        .hero-logo {
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            z-index: 2;
+        }
+
+        .hero-logo img {
+            height: 140px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .hero-logo img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+        }
+
+        .hero-center-text {
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--white);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: rgba(255,255,255,0.95);
+            display: inline-block;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            padding-bottom: 8px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-slogan {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 20px 45px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 50px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--white);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+            transition: all 0.3s;
+        }
+
+        .hero-slogan:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+        }
+
+        .btn-vk {
+            background: var(--vk-blue);
+            color: white;
+        }
+
+        .btn-channel {
+            background: var(--channel-color);
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* === СЕТКА ТОВАРОВ === */
+        .products-section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 70px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--channel-color), var(--accent-light));
+            margin: 20px auto 0;
+            border-radius: 3px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 45px;
+        }
+
+        /* === КАРТОЧКА ТОВАРА === */
+        .product-card {
+            background: var(--white);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--channel-color));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(10, 75, 92, 0.25);
+        }
+
+        .card-image {
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s;
+        }
+
+        .product-card:hover .card-image img {
+            transform: scale(1.15);
+        }
+
+        .card-content {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        .btn-details {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 14px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .btn-details:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(10, 75, 92, 0.3);
+        }
+
+        /* === МОДАЛЬНОЕ ОКНО === */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 75, 92, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 950px;
+            border-radius: 35px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+            animation: modalSlideIn 0.5s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.8rem;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg) scale(1.1);
+            color: var(--channel-color);
+            background: var(--channel-color);
+            color: white;
+        }
+
+        .carousel {
+            position: relative;
+            height: 480px;
+            background: #000;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Изменено с cover на contain чтобы показывать фото целиком */
+            display: none;
+        }
+
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 0.6s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--primary-color);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.15);
+            color: var(--channel-color);
+        }
+
+        .carousel-btn.prev { left: 25px; }
+        .carousel-btn.next { right: 25px; }
+
+        .modal-content.image-only .carousel {
+            display: none;
+        }
+
+        .modal-content.image-only .modal-image-container {
+            display: block;
+        }
+
+        .modal-image-container {
+            display: none;
+            width: 100%;
+            height: 500px;
+            overflow-y: auto; /* Добавлена прокрутка по вертикали */
+            overflow-x: hidden;
+            position: relative;
+            background: #000;
+        }
+
+        /* Стили для скроллбара */
+        .modal-image-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-image-container::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .modal-image-container::-webkit-scrollbar-thumb {
+            background: var(--channel-color);
+            border-radius: 4px;
+        }
+
+        .modal-image-container::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-light);
+        }
+
+        .modal-image-container img {
+            width: 100%;
+            height: auto; /* Изменено с cover на auto чтобы показывать фото целиком */
+            display: block;
+            object-fit: contain;
+        }
+
+        .modal-info {
+            padding: 45px;
+            overflow-y: auto;
+            background: var(--white);
+        }
+
+        .modal-title {
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .modal-text {
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .modal-action-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--channel-color) 0%, #2d6a7a 100%);
+            color: white;
+            padding: 20px 55px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+            box-shadow: 0 15px 30px rgba(59, 135, 161, 0.4);
+        }
+
+        .modal-action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 135, 161, 0.5);
+        }
+
+        /* === ДЕКОРАТИВНОЕ ИЗОБРАЖЕНИЕ ВНИЗУ === */
+        .bottom-decoration {
+            position: relative;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .bottom-decoration img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 450px;
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+            filter: drop-shadow(0 0 30px rgba(10, 75, 92, 0.5));
+        }
+
+        .bottom-decoration-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(10, 75, 92, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        .bottom-decoration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, transparent 30%, var(--bg-light) 90%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* === ПОДВАЛ === */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1D7874 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 250px;
+            height: 250px;
+            background: rgba(59, 135, 161, 0.1);
+            border-radius: 50%;
+        }
+
+        .footer-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 12px;
+            opacity: 0.85;
+            font-size: 1.15rem;
+        }
+
+        .footer-contacts-large {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: white;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 3px;
+            transition: all 0.3s;
+        }
+
+        .footer-link:hover {
+            border-color: var(--channel-color);
+            color: var(--channel-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-logo {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 0 auto 30px;
+            }
+            .hero-logo img {
+                height: 100px;
+            }
+            .hero {
+                padding: 60px 0 100px;
+                flex-direction: column;
+            }
+            .hero-center-text { font-size: 0.8rem; letter-spacing: 2px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .hero-slogan { font-size: 1rem; padding: 15px 30px; }
+            .header-content { flex-direction: column; gap: 15px; }
+            .header-contacts { text-align: center; }
+            .carousel { height: 280px; }
+            .modal-image-container { height: 350px; }
+            .modal-content { width: 95%; }
+            .modal-info { padding: 30px; }
+            .footer-contacts-large { flex-direction: column; gap: 20px; }
+            .products-grid { grid-template-columns: 1fr; }
+            .social-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .bottom-decoration img { max-height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ШАПКА САЙТА -->
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="https://i.postimg.cc/KzsPJVzM/Dizajn-bez-nazvania-(6).png" alt="Тичер ПРО Логотип">
+            </div>
+            <div class="header-contacts">
+                <a href="tel:89202105695">8 920 210 56 95</a>
+                <a href="mailto:teacher_pro@mail.ru">teacher_pro@mail.ru</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ГЛАВНЫЙ БЛОК (HERO) -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- ЛОГОТИП В HERO (БЕЗ КРУГА) -->
+        <div class="hero-logo">
+            <img src="https://i.postimg.cc/KzsPJVzM/Dizajn-bez-nazvania-(6).png" alt="Тичер ПРО Логотип">
+        </div>
+        
+        <div class="container hero-content">
+            <p class="hero-center-text">Независимый методический центр</p>
+            <h1>ТИЧЕР ПРО</h1>
+            <div class="hero-subtitle">МЕТОДИКА И ЭКСПЕРТИЗА</div>
+            <br>
+            <div class="hero-slogan">
+                Разложим методику по полочкам
+            </div>
+            <br><br>
+            <div class="social-buttons">
+                <a href="https://vk.com/centerteacherpro" target="_blank" class="btn btn-vk">
+                    Мы ВКонтакте
+                </a>
+                <a href="https://t.me/teacher_pro_centre" target="_blank" class="btn btn-channel">
+                    Наш канал
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ ТОВАРОВ/УСЛУГ -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Наши Направления</h2>
+            
+            <div class="products-grid">
+
+                <!-- ТОВАР 1 -->
+                <div class="product-card" 
+                     data-title="Методическое сопровождение"
+                     data-desc="Персональные консультации, экспертная поддержка и обзервации уроков. Мы помогаем вам расти профессионально, разбирая реальные кейсы из вашей практики."
+                     data-img="https://i.postimg.cc/cJnPX5pG/Снимок_экрана_2026_03_03_в_20_25_05.png"
+                     data-modal-img="https://i.postimg.cc/5NkLq8Z7/Snimok-ekrana-2026-03-03-v-22-11-35.png"
+                     data-link="#"
+                     data-type="image-only">
+                    
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/cJnPX5pG/Снимок_экрана_2026_03_03_в_20_25_05.png" alt="Методическое сопровождение">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Методическое сопровождение</h3>
+                        <p class="card-desc">Обзервации уроков и консультации.</p>
+                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
+                    </div>
+                </div>
+
+                <!-- ТОВАР 2 -->
+                <div class="product-card" 
+                     data-title="Конференции и Фестивали"
+                     data-desc="Ежегодные крупные события в онлайн и офлайн формате. Нетворкинг, обмен опытом, выступления ведущих спикеров отрасли."
+                     data-img="https://i.postimg.cc/NjVW8wPR/Снимок_экрана_2026_03_03_в_20_26_38.png"
+                     data-modal-img="https://i.postimg.cc/kGH3wjQs/Snimok-ekrana-2026-03-03-v-22-00-21.png"
+                     data-link="#"
+                     data-type="image-only">
+                    
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/NjVW8wPR/Снимок_экрана_2026_03_03_в_20_26_38.png" alt="Конференции">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Конференции и Фесты</h3>
+                        <p class="card-desc">Масштабные события для профессионалов.</p>
+                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
+                    </div>
+                </div>
+
+                <!-- ТОВАР 3 -->
+                <div class="product-card" 
+                     data-title="Игровое TKT / TKT Gamified"
+                     data-desc="Уникальный формат подготовки к экзамену TKT. Обучение через игру, интерактивные задания и погружение в языковую среду."
+                     data-img="https://i.postimg.cc/NMxmtB3L/IMG_8266.png"
+                     data-modal-img="https://i.postimg.cc/P5LnLMMk/Snimok-ekrana-2026-03-03-v-21-27-39.png"
+                     data-link="#"
+                     data-type="image-only">
+                    
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/NMxmtB3L/IMG_8266.png" alt="Игровое TKT">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Игровое TKT</h3>
+                        <p class="card-desc">Подготовка к экзамену в игровом формате.</p>
+                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
+                    </div>
+                </div>
+
+                <!-- ТОВАР 4 -->
+                <div class="product-card" 
+                     data-title="Методический Клуб"
+                     data-desc="Сообщество, где мы делимся идеями, материалами и вдохновением."
+                     data-img="https://i.postimg.cc/rwL4Ddq0/Snimok-ekrana-2026-03-03-v-20-31-27.png"
+                     data-modal-img="https://i.postimg.cc/QN6Q6gcg/Snimok-ekrana-2026-03-03-v-21-18-08.png"
+                     data-link="#"
+                     data-type="image-only">
+                    
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/rwL4Ddq0/Snimok-ekrana-2026-03-03-v-20-31-27.png" alt="Методический клуб">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Методический Клуб</h3>
+                        <p class="card-desc">Сообщество, где мы делимся идеями, материалами и вдохновением.</p>
+                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
+                    </div>
+                </div>
+
+                <!-- ТОВАР 5 -->
+                <div class="product-card" 
+                     data-title="Воскресный Офлайн Клуб"
+                     data-desc="Живое общение с коллегами в неформальной обстановке. Обсуждение рабочих моментов, отдых и вдохновение в кругу единомышленников."
+                     data-img="https://i.postimg.cc/LsJ1JGJV/Snimok-ekrana-2026-03-03-v-20-35-48.png"
+                     data-modal-img="https://i.postimg.cc/FH86qdJ3/Snimok-ekrana-2026-03-03-v-22-18-20.png"
+                     data-link="#"
+                     data-type="image-only">
+                    
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/LsJ1JGJV/Snimok-ekrana-2026-03-03-v-20-35-48.png" alt="Офлайн клуб">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Воскресный Клуб</h3>
+                        <p class="card-desc">Офлайн встречи для коллег по выходным.</p>
+                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
+                    </div>
+                </div>
+
+                <!-- ТОВАР 6 -->
+                <div class="product-card" 
+                     data-title="Независимое экспертное тестирование"
+                     data-desc="Объективная оценка уровня знаний студентов или квалификации педагогов. Сертификаты и детальный разбор результатов."
+                     data-img="https://i.postimg.cc/rwt4m16X/IMG_9017.avif"
+                     data-modal-img="https://i.postimg.cc/76ByGtjv/Snimok-ekrana-2026-03-03-v-21-37-02.png"
+                     data-link="#"
+                     data-type="image-only">
+                    
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/rwt4m16X/IMG_9017.avif" alt="Тестирование">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Экспертное Тестирование</h3>
+                        <p class="card-desc">Профессиональная оценка знаний и навыков ваших учеников в формате иностранных и государственных тестов.</p>
+                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ДЕКОРАТИВНОЕ ИЗОБРАЖЕНИЕ ВНИЗУ -->
+    <section class="bottom-decoration">
+        <div class="bottom-decoration-overlay"></div>
+        <img src="https://i.postimg.cc/T1YmYBxZ/acetone_202633_20104_219.png" alt="Декоративное изображение">
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="container footer-info">
+            <h3>ТИЧЕР ПРО</h3>
+            <p>Методика и Экспертиза</p>
+            
+            <div class="footer-contacts-large">
+                <a href="tel:89202105695" class="footer-link">8 920 210 56 95</a>
+                <a href="mailto:teacher_pro@mail.ru" class="footer-link">teacher_pro@mail.ru</a>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 0.85rem; opacity: 0.5;">© 2024 Teacher Pro. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content" id="modalContent">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <div class="carousel" id="carouselContainer">
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <div id="carouselSlides"></div>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+
+            <div class="modal-image-container" id="modalImageContainer">
+                <img src="" alt="" id="modalSingleImage">
+            </div>
+
+            <div class="modal-info">
+                <h2 class="modal-title" id="modalTitle">Название товара</h2>
+                <p class="modal-text" id="modalDesc">Описание товара...</p>
+                <a href="#" id="modalBtn" class="modal-action-btn" target="_blank">Записаться / Купить</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- СКРИПТЫ -->
+    <script>
+        const productImages = {
+            "Методическое сопровождение": [
+                "https://i.postimg.cc/5NkLq8Z7/Snimok-ekrana-2026-03-03-v-22-11-35.png"
+            ],
+            "Конференции и Фестивали": [
+                "https://i.postimg.cc/kGH3wjQs/Snimok-ekrana-2026-03-03-v-22-00-21.png"
+            ],
+            "Игровое TKT / TKT Gamified": [
+                "https://i.postimg.cc/P5LnLMMk/Snimok-ekrana-2026-03-03-v-21-27-39.png"
+            ],
+            "Методический Клуб": [
+                "https://i.postimg.cc/QN6Q6gcg/Snimok-ekrana-2026-03-03-v-21-18-08.png"
+            ],
+            "Воскресный Офлайн Клуб": [
+                "https://i.postimg.cc/FH86qdJ3/Snimok-ekrana-2026-03-03-v-22-18-20.png"
+            ],
+            "Независимое экспертное тестирование": [
+                "https://i.postimg.cc/76ByGtjv/Snimok-ekrana-2026-03-03-v-21-37-02.png"
+            ]
+        };
+
+        let currentSlideIndex = 0;
+        let currentImages = [];
+
+        function openModal(btnElement) {
+            const card = btnElement.closest('.product-card');
+            const title = card.getAttribute('data-title');
+            const desc = card.getAttribute('data-desc');
+            const link = card.getAttribute('data-link');
+            const type = card.getAttribute('data-type');
+            const modalImg = card.getAttribute('data-modal-img');
+            
+            const modalContent = document.getElementById('modalContent');
+            const carouselContainer = document.getElementById('carouselContainer');
+            const modalImageContainer = document.getElementById('modalImageContainer');
+            
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalBtn').href = link;
+
+            if (type === 'image-only') {
+                modalContent.classList.add('image-only');
+                carouselContainer.style.display = 'none';
+                modalImageContainer.style.display = 'block';
+                document.getElementById('modalSingleImage').src = modalImg || card.getAttribute('data-img');
+                document.getElementById('modalSingleImage').alt = title;
+                document.getElementById('modalBtn').style.display = 'none';
+            } else {
+                modalContent.classList.remove('image-only');
+                carouselContainer.style.display = 'block';
+                modalImageContainer.style.display = 'none';
+                document.getElementById('modalBtn').style.display = 'inline-block';
+                
+                currentImages = productImages[title] || [card.getAttribute('data-img')];
+                renderCarousel();
+                currentSlideIndex = 0;
+            }
+
+            document.getElementById('productModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.remove('active');
+        }
+
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        function renderCarousel() {
+            const container = document.getElementById('carouselSlides');
+            container.innerHTML = '';
+            
+            currentImages.forEach((imgSrc, index) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.className = 'carousel-slide';
+                if (index === 0) img.classList.add('active');
+                container.appendChild(img);
+            });
+        }
+
+        function moveSlide(direction) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            if (slides.length === 0) return;
+
+            slides[currentSlideIndex].classList.remove('active');
+            
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
+            
+            slides[currentSlideIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
