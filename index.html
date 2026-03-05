@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+
+                background: linear-gradient(135deg, #062136 0%, #1f5f75 50%, #3c9fb5 100%);
+
+
+              </style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +33,8 @@
             --accent-light: #4CA1A3;
             --channel-color: #3b87a1;
             --vk-blue: #0077FF;
+            --news-btn-color: #18696e;
+            --news-btn-hover: #145a5f;
             --text-dark: #264653;
             --bg-light: #F4F7F6;
             --white: #ffffff;
@@ -272,6 +291,187 @@
             }
         }
 
+        /* === НОВОСТИ SECTION - НОВЫЙ ГРАДИЕНТ #062136 до #3c9fb5 === */
+        .news-section {
+            padding: 100px 0;
+            /* Новый градиент от #062136 до #3c9fb5 */
+            background: linear-gradient(135deg, #062136 0%, #1f5f75 50%, #3c9fb5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .news-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .news-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .news-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--white);
+            margin: 20px auto 0;
+            border-radius: 3px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .news-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--news-btn-color), var(--accent-light));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .news-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .news-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.1);
+        }
+
+        /* === БЕЙДЖ В ПРАВОМ НИЖНЕМ УГЛУ === */
+        .news-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--news-btn-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(24, 105, 110, 0.4);
+            z-index: 2;
+        }
+
+        .news-content {
+            padding: 35px;
+        }
+
+        .news-date {
+            color: var(--news-btn-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-date::before {
+            content: '📅';
+        }
+
+        .news-headline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .news-text {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .news-btn {
+            display: inline-block;
+            background: var(--news-btn-color);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(24, 105, 110, 0.4);
+            margin-top: 15px;
+        }
+
+        .news-btn:hover {
+            background: var(--news-btn-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(24, 105, 110, 0.5);
+        }
+
         /* === СЕТКА ТОВАРОВ === */
         .products-section {
             padding: 100px 0;
@@ -479,7 +679,7 @@
         .carousel-slide {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Изменено с cover на contain чтобы показывать фото целиком */
+            object-fit: contain;
             display: none;
         }
 
@@ -533,13 +733,12 @@
             display: none;
             width: 100%;
             height: 500px;
-            overflow-y: auto; /* Добавлена прокрутка по вертикали */
+            overflow-y: auto;
             overflow-x: hidden;
             position: relative;
             background: #000;
         }
 
-        /* Стили для скроллбара */
         .modal-image-container::-webkit-scrollbar {
             width: 8px;
         }
@@ -559,7 +758,7 @@
 
         .modal-image-container img {
             width: 100%;
-            height: auto; /* Изменено с cover на auto чтобы показывать фото целиком */
+            height: auto;
             display: block;
             object-fit: contain;
         }
@@ -708,6 +907,18 @@
             color: var(--channel-color);
         }
 
+        .footer-legal {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .footer-legal p {
+            margin: 5px 0;
+        }
+
         @media (max-width: 768px) {
             .hero-logo {
                 position: relative;
@@ -728,6 +939,9 @@
             .hero-slogan { font-size: 1rem; padding: 15px 30px; }
             .header-content { flex-direction: column; gap: 15px; }
             .header-contacts { text-align: center; }
+            .news-title { font-size: 2rem; }
+            .news-grid { grid-template-columns: 1fr; }
+            .news-image { height: 250px; }
             .carousel { height: 280px; }
             .modal-image-container { height: 350px; }
             .modal-content { width: 95%; }
@@ -781,6 +995,43 @@
                 <a href="https://t.me/teacher_pro_centre" target="_blank" class="btn btn-channel">
                     Наш канал
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === НОВОСТИ SECTION - НОВЫЙ ГРАДИЕНТ === -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="news-title">📰 Новости</h2>
+            
+            <div class="news-grid">
+                <!-- НОВОСТЬ 1: ЭдКонф.ВРН -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://i.postimg.cc/4y7jG5YH/photo-2026-03-05-14-04-58.jpg" alt="ЭдКонф.ВРН">
+                        <div class="news-badge">🔥 Событие</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">5 апреля 2026</div>
+                        <h3 class="news-headline">Конференция ЭдКонф.ВРН в Воронеже</h3>
+                        <p class="news-text">Приглашаем на масштабную конференцию для педагогов, руководителей и фрилансеров! Нетворкинг, обмен опытом, выступления ведущих спикеров.</p>
+                        <a href="https://edconfvrn-2026.tilda.ws" target="_blank" class="news-btn">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- НОВОСТЬ 2: Игровой ТКТ -->
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="https://i.postimg.cc/0Q32ZzYQ/Snimok-ekrana-2026-03-05-v-13-45-13.png" alt="Игровой ТКТ">
+                        <div class="news-badge">📚 Курс</div>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">Набор открыт</div>
+                        <h3 class="news-headline">Асинхронный курс "Игровой ТКТ"</h3>
+                        <p class="news-text">Уникальный формат подготовки к экзамену TKT. Обучение через игру в удобном для вас темпе.</p>
+                        <a href="https://tkt-online.tilda.ws" target="_blank" class="news-btn">Подробнее →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -928,6 +1179,12 @@
             </div>
             
             <p style="margin-top: 40px; font-size: 0.85rem; opacity: 0.5;">© 2024 Teacher Pro. Все права защищены.</p>
+            
+            <!-- === ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ === -->
+            <div class="footer-legal">
+                <p>СЗ Аяцкова Лилия Шамильевна</p>
+                <p>ИНН 366406510962</p>
+            </div>
         </div>
     </footer>
 
@@ -1055,3 +1312,11 @@
 </body>
 </html>
 
+
+
+              <script>
+                              
+              </script>
+                        </body>
+                        </html>
+                    
