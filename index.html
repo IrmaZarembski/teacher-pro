@@ -1,21 +1,4 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <style>
-                body {
-                  background-color: white; /* Ensure the iframe has a white background */
-                }
-
-                background: linear-gradient(135deg, #062136 0%, #1f5f75 50%, #3c9fb5 100%);
-
-
-              </style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -294,7 +277,6 @@
         /* === НОВОСТИ SECTION - НОВЫЙ ГРАДИЕНТ #062136 до #3c9fb5 === */
         .news-section {
             padding: 100px 0;
-            /* Новый градиент от #062136 до #3c9fb5 */
             background: linear-gradient(135deg, #062136 0%, #1f5f75 50%, #3c9fb5 100%);
             position: relative;
             overflow: hidden;
@@ -1081,12 +1063,31 @@
                     </div>
                 </div>
 
-                <!-- ТОВАР 3 -->
+                <!-- ТОВАР 3 - МЕТОДИЧЕСКИЙ КЛУБ (БЫЛ 4-м, ТЕПЕРЬ 3-й) -->
+                <div class="product-card" 
+                     data-title="Методический Клуб"
+                     data-desc="Сообщество, где мы делимся идеями, материалами и вдохновением."
+                     data-img="https://i.postimg.cc/rwL4Ddq0/Sнимок_экрана_2026_03_03_в_20_31_27.png"
+                     data-modal-img="https://i.postimg.cc/QN6Q6gcg/Sнимок_экрана_2026_03_03_в_21_18_08.png"
+                     data-link="#"
+                     data-type="image-only">
+                    
+                    <div class="card-image">
+                        <img src="https://i.postimg.cc/rwL4Ddq0/Sнимок_экрана_2026_03_03_в_20_31_27.png" alt="Методический клуб">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Методический Клуб</h3>
+                        <p class="card-desc">Сообщество, где мы делимся идеями, материалами и вдохновением.</p>
+                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
+                    </div>
+                </div>
+
+                <!-- ТОВАР 4 - ИГРОВОЕ TKT (БЫЛ 3-м, ТЕПЕРЬ 4-й) -->
                 <div class="product-card" 
                      data-title="Игровое TKT / TKT Gamified"
                      data-desc="Уникальный формат подготовки к экзамену TKT. Обучение через игру, интерактивные задания и погружение в языковую среду."
                      data-img="https://i.postimg.cc/NMxmtB3L/IMG_8266.png"
-                     data-modal-img="https://i.postimg.cc/P5LnLMMk/Snimok-ekrana-2026-03-03-v-21-27-39.png"
+                     data-modal-img="https://i.postimg.cc/P5LnLMMk/Sнимок_экрана_2026_03_03_в_21_27_39.png"
                      data-link="#"
                      data-type="image-only">
                     
@@ -1100,36 +1101,17 @@
                     </div>
                 </div>
 
-                <!-- ТОВАР 4 -->
-                <div class="product-card" 
-                     data-title="Методический Клуб"
-                     data-desc="Сообщество, где мы делимся идеями, материалами и вдохновением."
-                     data-img="https://i.postimg.cc/rwL4Ddq0/Snimok-ekrana-2026-03-03-v-20-31-27.png"
-                     data-modal-img="https://i.postimg.cc/QN6Q6gcg/Snimok-ekrana-2026-03-03-v-21-18-08.png"
-                     data-link="#"
-                     data-type="image-only">
-                    
-                    <div class="card-image">
-                        <img src="https://i.postimg.cc/rwL4Ddq0/Snimok-ekrana-2026-03-03-v-20-31-27.png" alt="Методический клуб">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Методический Клуб</h3>
-                        <p class="card-desc">Сообщество, где мы делимся идеями, материалами и вдохновением.</p>
-                        <button class="btn-details" onclick="openModal(this)">Подробнее</button>
-                    </div>
-                </div>
-
                 <!-- ТОВАР 5 -->
                 <div class="product-card" 
                      data-title="Воскресный Офлайн Клуб"
                      data-desc="Живое общение с коллегами в неформальной обстановке. Обсуждение рабочих моментов, отдых и вдохновение в кругу единомышленников."
-                     data-img="https://i.postimg.cc/LsJ1JGJV/Snimok-ekrana-2026-03-03-v-20-35-48.png"
-                     data-modal-img="https://i.postimg.cc/FH86qdJ3/Snimok-ekrana-2026-03-03-v-22-18-20.png"
+                     data-img="https://i.postimg.cc/LsJ1JGJV/Sнимок_экрана_2026_03_03_в_20_35_48.png"
+                     data-modal-img="https://i.postimg.cc/FH86qdJ3/Sнимок_экрана_2026_03_03_в_22_18_20.png"
                      data-link="#"
                      data-type="image-only">
                     
                     <div class="card-image">
-                        <img src="https://i.postimg.cc/LsJ1JGJV/Snimok-ekrana-2026-03-03-v-20-35-48.png" alt="Офлайн клуб">
+                        <img src="https://i.postimg.cc/LsJ1JGJV/Sнимок_экрана_2026_03_03_в_20_35_48.png" alt="Офлайн клуб">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Воскресный Клуб</h3>
@@ -1143,7 +1125,7 @@
                      data-title="Независимое экспертное тестирование"
                      data-desc="Объективная оценка уровня знаний студентов или квалификации педагогов. Сертификаты и детальный разбор результатов."
                      data-img="https://i.postimg.cc/rwt4m16X/IMG_9017.avif"
-                     data-modal-img="https://i.postimg.cc/76ByGtjv/Snimok-ekrana-2026-03-03-v-21-37-02.png"
+                     data-modal-img="https://i.postimg.cc/76ByGtjv/Sнимок_экрана_2026_03_03_в_21_37_02.png"
                      data-link="#"
                      data-type="image-only">
                     
@@ -1215,22 +1197,22 @@
     <script>
         const productImages = {
             "Методическое сопровождение": [
-                "https://i.postimg.cc/5NkLq8Z7/Snimok-ekrana-2026-03-03-v-22-11-35.png"
+                "https://i.postimg.cc/5NkLq8Z7/Sнимок_экрана_2026_03_03_в_22_11_35.png"
             ],
             "Конференции и Фестивали": [
-                "https://i.postimg.cc/kGH3wjQs/Snimok-ekrana-2026-03-03-v-22-00-21.png"
+                "https://i.postimg.cc/kGH3wjQs/Sнимок_экрана_2026_03_03_в_22_00_21.png"
             ],
             "Игровое TKT / TKT Gamified": [
-                "https://i.postimg.cc/P5LnLMMk/Snimok-ekrana-2026-03-03-v-21-27-39.png"
+                "https://i.postimg.cc/P5LnLMMk/Sнимок_экрана_2026_03_03_в_21_27_39.png"
             ],
             "Методический Клуб": [
-                "https://i.postimg.cc/QN6Q6gcg/Snimok-ekrana-2026-03-03-v-21-18-08.png"
+                "https://i.postimg.cc/QN6Q6gcg/Sнимок_экрана_2026_03_03_в_21_18_08.png"
             ],
             "Воскресный Офлайн Клуб": [
-                "https://i.postimg.cc/FH86qdJ3/Snimok-ekrana-2026-03-03-v-22-18-20.png"
+                "https://i.postimg.cc/FH86qdJ3/Sнимок_экрана_2026_03_03_в_22_18_20.png"
             ],
             "Независимое экспертное тестирование": [
-                "https://i.postimg.cc/76ByGtjv/Snimok-ekrana-2026-03-03-v-21-37-02.png"
+                "https://i.postimg.cc/76ByGtjv/Sнимок_экрана_2026_03_03_в_21_37_02.png"
             ]
         };
 
@@ -1312,11 +1294,3 @@
 </body>
 </html>
 
-
-
-              <script>
-                              
-              </script>
-                        </body>
-                        </html>
-                    
